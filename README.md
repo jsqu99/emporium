@@ -9,7 +9,7 @@ Philosophy
 ============
 Provide a sophisticated, full-featured e-commerce framework that treats common features found in the wild as first-class citizens.
 
-Subscriptions, recurring payments, customizable products, multi-currency/language, store credits, non-physical products e.g. services, downlaodable products (what's a better name for this?)
+Subscriptions, recurring payments, customizable products, multi-currency/language, store credits, non-physical products e.g. services, digital goods, 
 etc. are to be an integral part of the framework.
 
 Extensibility is great but the act of taking advantage of it shouldn't be a symptom of an insufficient data model / too-small feature set.
