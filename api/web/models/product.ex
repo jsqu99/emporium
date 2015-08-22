@@ -1,17 +1,18 @@
-defmodule Emporium.Category do
+defmodule Emporium.Product do
   use EmporiumApi.Web, :model
 
-  schema "emporium_categories" do
+  schema "emporium_products" do
     field :name, :string
     field :permalink, :string
-    field :parent_id, :integer
+    field :description, :string
+    belongs_to :category, Emporium.Category
+    field :is_digital, :boolean, default: false
 
-    has_many :products, Emporium.Product
     timestamps
   end
 
-  @required_fields ~w(name permalink)
-  @optional_fields ~w(parent_id)
+  @required_fields ~w(name permalink description category_id)
+  @optional_fields ~w(is_digital)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

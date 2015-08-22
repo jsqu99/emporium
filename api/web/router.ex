@@ -22,5 +22,6 @@ defmodule EmporiumApi.Router do
     pipe_through :api
 
     resources "/categories", CategoryController
+    resources "/products", ProductController
   end
 end
