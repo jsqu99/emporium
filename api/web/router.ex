@@ -18,8 +18,9 @@ defmodule EmporiumApi.Router do
 
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", EmporiumApi do
-  #   pipe_through :api
-  # end
+  scope "/api", EmporiumApi do
+    pipe_through :api
+
+    resources "/categories", CategoryController
+  end
 end

@@ -36,6 +36,6 @@ config :phoenix, :stacktrace_depth, 20
 config :emporium_api, EmporiumApi.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: "",
   database: "emporium_api_dev",
   pool_size: 10
