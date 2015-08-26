@@ -31,3 +31,7 @@ config :logger, :console, format: "[$level] $message\n"
 # Do not configure such in production as keeping
 # and calculating stacktraces is usually expensive.
 config :phoenix, :stacktrace_depth, 20
+
+config :emporium_admin,
+  api_url: [host: "localhost", port: 4000]
+

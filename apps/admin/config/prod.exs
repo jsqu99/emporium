@@ -19,6 +19,9 @@ config :emporium_admin, EmporiumAdmin.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :emporium_admin,
+  api_url: [host: "example.com", port: 80]
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
