@@ -33,6 +33,8 @@ defmodule EmporiumAdmin.Mixfile do
     [{:phoenix, "~> 0.17"},
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:httpoison, "~> 0.7.2"}
+    ]
   end
 end
