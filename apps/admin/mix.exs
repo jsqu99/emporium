@@ -19,7 +19,7 @@ defmodule EmporiumAdmin.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {EmporiumAdmin, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :httpoison]]
   end
 
   # Specifies which paths to compile per environment
