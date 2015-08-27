@@ -5,6 +5,8 @@ defmodule EmporiumApi.Mixfile do
     [app: :emporium_api,
      version: "0.0.1",
      elixir: "~> 1.0",
+     deps_path: "../../deps",
+     lockfile: "../../mix.lock",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
