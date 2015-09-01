@@ -19,7 +19,7 @@ Product Model
 
 * Some products will have multiple skus (e.g. Product would be Men's V-Neck T-shirt, skus would vary for size and color)
 
-* In the size/color example above, the products are associated with acceptable option_types (Size, Color), and skus are differentiated by their option_values.
+* In the size/color example above, the products are associated with acceptable Properties (Size, Color), and skus are differentiated by their ProductProperty.
 
 * The three *sku customization* tables allow things like selling a product that is priced according to something complicated like length (e.g. rope), dimension (custom-made art frame), "price-per-letter" engraving.  We can discuss having these be part of an extension, but one thing to keep in mind is the whole 'add to cart' thing was a nightmare in other frameworks and required lots of surgery, so I want to think about this case up-front (customizing and pricing products both before and after adding to cart).
 
