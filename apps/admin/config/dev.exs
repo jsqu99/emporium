@@ -33,5 +33,5 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 config :emporium_admin,
-  api_url: [host: "localhost", port: 4000]
+  api_url: "http://localhost:4000"
 
