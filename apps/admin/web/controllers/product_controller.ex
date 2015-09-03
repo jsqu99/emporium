@@ -1,30 +1,29 @@
 defmodule EmporiumAdmin.ProductController do
   use EmporiumAdmin.Web, :controller
 
-  alias EmporiumAdmin.EmporiumHTTPApi
+  alias Emporium.HTTP.API.Client, as: APIClient
 
   plug :scrub_params, "product" when action in [:create, :update]
 
-  def index(conn, _params) do
-    products = EmporiumHTTPApi.get!("/api/products").body[:data]
+  def index(conn, params) do
+    products = APIClient.get_products!(params)
     render(conn, "index.html", products: products)
   end
 
   def new(conn, _params) do
-    changeset = ""
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html")
   end
 
-  def create(conn, %{"product" => product_params}) do
-    changeset = ""
-
-    case changeset do
-      {:ok, _product} ->
+  def create(conn, params) do
+    response = APIClient.create_product!(params)
+    case {response.body, response.status_code} do
+      {_, 201} ->
         conn
         |> put_flash(:info, "Product created successfully.")
         |> redirect(to: product_path(conn, :index))
-      {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+      {body, 422} ->
+        conn = assign(conn, :errors, body[:errors])
+        render(conn, "new.html")
     end
   end
 
