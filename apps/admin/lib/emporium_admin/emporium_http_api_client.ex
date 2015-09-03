@@ -17,6 +17,10 @@ defmodule Emporium.HTTP.API.Client do
     __MODULE__.delete!("/api/products/#{id}")
   end
 
+  def update_product!(id, params) do
+    __MODULE__.put!("/api/products/#{id}", Poison.encode!(params))
+  end
+
   def process_url(url) do
     {:ok, api_url} = Application.fetch_env(:emporium_admin, :api_url)
     api_url <> url

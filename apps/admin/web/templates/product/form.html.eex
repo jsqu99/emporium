@@ -1,4 +1,4 @@
-<%= form_for @conn, @action, [name: :product], fn f -> %>
+<%= form_for @conn, @action, [name: :product, method: @method], fn f -> %>
   <%= if @conn.assigns[:errors] != nil do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below:</p>
@@ -12,22 +12,22 @@
 
   <div class="form-group">
     <%= label f, :name, "Name" %>
-    <%= text_input f, :name, class: "form-control" %>
+    <%= text_input f, :name, value: @product["name"], class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= label f, :permalink, "Permalink" %>
-    <%= text_input f, :permalink, class: "form-control" %>
+    <%= text_input f, :permalink, value: @product["permalink"], class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= label f, :description, "Description" %>
-    <%= textarea f, :description, class: "form-control" %>
+    <%= textarea f, :description, value: to_string(@product["description"]), class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= label f, :category_id, "Category" %>
-    <%= text_input f, :category_id, class: "form-control" %>
+    <%= text_input f, :category_id, value:  @product["category_id"], class: "form-control" %>
   </div>
   
   <div class="form-group">

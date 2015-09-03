@@ -11,7 +11,8 @@ defmodule EmporiumAdmin.ProductController do
   end
 
   def new(conn, _params) do
-    render(conn, "new.html")
+    product = %{}
+    render(conn, "new.html", product: product)
   end
 
   def create(conn, params) do
@@ -33,22 +34,22 @@ defmodule EmporiumAdmin.ProductController do
   end
 
   def edit(conn, %{"id" => id}) do
-    product = ""
-    changeset = ""
-    render(conn, "edit.html", product: product, changeset: changeset)
+    product = API.Client.get_product!(id)
+    render(conn, "edit.html", product: product)
   end
 
   def update(conn, %{"id" => id, "product" => product_params}) do
-    product = ""
-    changeset = ""
+    response = API.Client.update_product!(id, %{product: product_params})
+    product = Map.put(product_params, "id", id)
 
-    case "" do
-      {:ok, product} ->
+    case {response.body, response.status_code} do
+      {_, 200} ->
         conn
         |> put_flash(:info, "Product updated successfully.")
-        |> redirect(to: product_path(conn, :show, product))
-      {:error, changeset} ->
-        render(conn, "edit.html", product: product, changeset: changeset)
+        |> redirect(to: product_path(conn, :show, product["id"]))
+      {body, 422} ->
+        conn = assign(conn, :errors, body[:errors])
+        render(conn, "edit.html", product: product)
     end
   end
 
