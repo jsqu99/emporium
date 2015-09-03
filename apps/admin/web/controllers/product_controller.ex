@@ -1,12 +1,12 @@
 defmodule EmporiumAdmin.ProductController do
   use EmporiumAdmin.Web, :controller
 
-  alias Emporium.HTTP.API.Client, as: APIClient
+  alias Emporium.HTTP.API
 
   plug :scrub_params, "product" when action in [:create, :update]
 
   def index(conn, params) do
-    products = APIClient.get_products!(params)
+    products = API.Client.get_products!(params)
     render(conn, "index.html", products: products)
   end
 
@@ -15,7 +15,7 @@ defmodule EmporiumAdmin.ProductController do
   end
 
   def create(conn, params) do
-    response = APIClient.create_product!(params)
+    response = API.Client.create_product!(params)
     case {response.body, response.status_code} do
       {_, 201} ->
         conn
@@ -53,14 +53,18 @@ defmodule EmporiumAdmin.ProductController do
   end
 
   def delete(conn, %{"id" => id}) do
-    product = ""
 
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
-    #Repo.delete!(product)
+    response = API.Client.delete_product!(id)
+    case response.status_code do
+      204 -> 
+        conn
+        |> put_flash(:info, "Product deleted successfully.")
+        |> redirect(to: product_path(conn, :index))
+      404 ->
+        conn
+        |> put_flash(:error, "Product id #{id} Not Found.")
+        |> redirect(to: product_path(conn, :index))
+    end
 
-    conn
-    |> put_flash(:info, "Product deleted successfully.")
-    |> redirect(to: product_path(conn, :index))
   end
 end
