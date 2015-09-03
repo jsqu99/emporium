@@ -28,7 +28,7 @@ defmodule EmporiumAdmin.ProductController do
   end
 
   def show(conn, %{"id" => id}) do
-    product = ""
+    product = API.Client.get_product!(id)
     render(conn, "show.html", product: product)
   end
 

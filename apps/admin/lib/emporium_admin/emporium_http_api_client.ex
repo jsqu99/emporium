@@ -1,6 +1,10 @@
 defmodule Emporium.HTTP.API.Client do
   use HTTPoison.Base
 
+  def get_product!(id) do
+    __MODULE__.get!("/api/products/#{id}").body[:data]
+  end
+
   def get_products!(params) do
     __MODULE__.get!("/api/products", [], params: params).body[:data]
   end
