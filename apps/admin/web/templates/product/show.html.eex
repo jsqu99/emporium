@@ -1,0 +1,10 @@
+<h2>Show product</h2>
+
+<ul>
+  <li>Name: <%= @product["name"] %></li>
+  <li>Permalink: <%= @product["permalink"] %></li>
+  <li>Description: <%= @product["description"] %></li>
+</ul>
+
+<%= link "Edit", to: product_path(@conn, :edit, @product["id"]) %>
+<%= link "Back", to: product_path(@conn, :index) %>

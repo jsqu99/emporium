@@ -20,7 +20,7 @@ config :emporium_admin, EmporiumAdmin.Endpoint,
 config :logger, level: :info
 
 config :emporium_admin,
-  api_url: [host: "example.com", port: 80]
+  api_url: "http://example.com"
 
 # ## SSL Support
 #

@@ -1,0 +1,6 @@
+<h2>Edit product</h2>
+
+<%= render "form.html", conn: @conn, product: @product, method: :put, 
+                        action: product_path(@conn, :update, @product["id"]) %>
+
+<%= link "Back", to: product_path(@conn, :index) %>
