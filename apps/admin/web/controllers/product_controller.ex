@@ -54,10 +54,9 @@ defmodule EmporiumAdmin.ProductController do
   end
 
   def delete(conn, %{"id" => id}) do
-
     response = API.Client.delete_product!(id)
     case response.status_code do
-      204 -> 
+      204 ->
         conn
         |> put_flash(:info, "Product deleted successfully.")
         |> redirect(to: product_path(conn, :index))
@@ -66,6 +65,5 @@ defmodule EmporiumAdmin.ProductController do
         |> put_flash(:error, "Product id #{id} Not Found.")
         |> redirect(to: product_path(conn, :index))
     end
-
   end
 end
