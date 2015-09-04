@@ -24,7 +24,7 @@ defmodule EmporiumAdmin.ProductController do
         |> redirect(to: product_path(conn, :index))
       {body, 422} ->
         conn = assign(conn, :errors, body[:errors])
-        render(conn, "new.html")
+        render(conn, "new.html", product: params)
     end
   end
 
