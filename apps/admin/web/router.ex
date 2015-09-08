@@ -16,6 +16,7 @@ defmodule EmporiumAdmin.Router do
   scope "/", EmporiumAdmin do
     pipe_through :browser # Use the defaultobrowser stack
     resources "/products", ProductController
+    resources "/categories", CategoryController
   end
 
   # Other scopes may use custom stacks.

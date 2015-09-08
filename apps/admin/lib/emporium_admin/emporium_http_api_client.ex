@@ -21,6 +21,26 @@ defmodule Emporium.HTTP.API.Client do
     __MODULE__.put!("/api/products/#{id}", Poison.encode!(params))
   end
 
+  def get_category!(id) do
+    __MODULE__.get!("/api/categories/#{id}").body[:data]
+  end
+
+  def get_categories!(params) do
+    __MODULE__.get!("/api/categories", [], params: params).body[:data]
+  end
+
+  def create_category!(params) do
+    __MODULE__.post!("/api/categories", Poison.encode!(params))
+  end
+
+  def delete_category!(id) do
+    __MODULE__.delete!("/api/categories/#{id}")
+  end
+
+  def update_category!(id, params) do
+    __MODULE__.put!("/api/categories/#{id}", Poison.encode!(params))
+  end
+
   def process_url(url) do
     {:ok, api_url} = Application.fetch_env(:emporium_admin, :api_url)
     api_url <> url

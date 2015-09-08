@@ -1,0 +1,8 @@
+<h2>Show category</h2>
+
+<ul>
+  <li><%= @category["name"] %></li>
+</ul>
+
+<%= link "Edit", to: category_path(@conn, :edit, @category["id"]) %>
+<%= link "Back", to: category_path(@conn, :index) %>
