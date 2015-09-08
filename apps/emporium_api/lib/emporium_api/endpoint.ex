@@ -35,5 +35,17 @@ defmodule EmporiumApi.Endpoint do
     key: "_emporium_api_key",
     signing_salt: "szyqAi16"
 
-  plug EmporiumApi.Router
+
+  def call(conn, _opts) do
+    conn = put_in conn.secret_key_base, config(:secret_key_base)
+    conn = conn
+    |> Plug.Conn.put_private(:phoenix_endpoint, __MODULE__)
+    |> put_script_name()
+    |> phoenix_pipeline()
+
+    conn = Emporium.ModulesManager.active_plugs 
+    |> Enum.reduce(conn, fn(mod, conn) -> :erlang.apply(mod, :call, [conn, []]) end )
+
+    conn |> EmporiumApi.Router.call([])
+  end
 end
