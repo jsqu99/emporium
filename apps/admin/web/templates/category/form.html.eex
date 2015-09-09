@@ -1,4 +1,4 @@
-<%= form_for @conn, @action, [name: :category, method: @method], fn f -> %>
+<%= form_for @conn, @action, [as: :category, method: @method], fn f -> %>
   <%= if @conn.assigns[:errors] != nil do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below:</p>
