@@ -25,12 +25,12 @@ form.link, form.button {
   border-bottom: 1px solid #e5e5e5;
 }
 .logo {
-  width: 519px;
-  height: 71px;
+  width: 247px;
+  height: 50px;
   display: inline-block;
   margin-bottom: 1em;
-  background-image: url("/images/phoenix.png");
-  background-size: 519px 71px;
+  background-image: url("/images/emporium-logo-blackonwhite.png");
+  background-size: 247px 50px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
