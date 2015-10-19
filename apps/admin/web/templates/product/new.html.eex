@@ -1,6 +1,8 @@
-<h2>New product</h2>
+<div class="form-container">
+  <h2>New product</h2>
 
-<%= render "form.html", conn: @conn, product: @product, method: :post,
-                        action: product_path(@conn, :create) %>
+  <%= render "form.html", conn: @conn, product: @product, method: :post,
+                          action: product_path(@conn, :create) %>
 
-<%= link "Back", to: product_path(@conn, :index) %>
+  <%# link "Back", to: product_path(@conn, :index) %>
+</div>

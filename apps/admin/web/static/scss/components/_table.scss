@@ -1,0 +1,20 @@
+.table {
+  font-size: 12px;
+
+  tr {
+    border-bottom: 1px solid #eee;
+
+    &:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+  }
+
+  thead tr {
+    border-bottom: 2px solid #eee;
+  }
+
+  td, th {
+    padding: $baseline*1.2 $baseline*2;
+    margin-left: $baseline;
+  }
+}

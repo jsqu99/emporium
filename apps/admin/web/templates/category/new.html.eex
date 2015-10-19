@@ -1,6 +1,8 @@
-<h2>New category</h2>
+<div class="form-container">
+  <h2 class="view__title">New category</h2>
 
-<%= render "form.html", conn: @conn, method: :create, category: @category,
-                        action: category_path(@conn, :create) %>
+  <%= render "form.html", conn: @conn, method: :create, category: @category,
+                          action: category_path(@conn, :create) %>
 
-<%= link "Back", to: category_path(@conn, :index) %>
+  <%# link "Back", to: category_path(@conn, :index) %>
+</div>

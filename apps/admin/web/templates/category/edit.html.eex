@@ -1,6 +1,8 @@
-<h2>Edit category</h2>
+<div class="form-container">
+  <h2 class="view__title">Edit category</h2>
 
-<%= render "form.html", conn: @conn, category: @category, method: :put,
-                        action: category_path(@conn, :update, @category["id"]) %>
+  <%= render "form.html", conn: @conn, category: @category, method: :put,
+                          action: category_path(@conn, :update, @category["id"]) %>
 
-<%= link "Back", to: category_path(@conn, :index) %>
+  <%# link "Back", to: category_path(@conn, :index) %>
+</div>
