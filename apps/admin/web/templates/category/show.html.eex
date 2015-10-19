@@ -1,8 +1,17 @@
-<h2>Show category</h2>
+<div class="form-container">
+  <h2 class="view__title">Show category '<%= @category["name"] %>'</h2>
 
-<ul>
-  <li><%= @category["name"] %></li>
-</ul>
+  <table class="table">
+    <thead></thead>
+    <tr>
+      <td>Name:</td>
+      <td><%= @category["name"] %></td>
+    </tr>
+    <tr>
+      <td>Permalink:</td>
+      <td><%= @category["permalink"] %></td>
+    </tr>
+  </table>
 
-<%= link "Edit", to: category_path(@conn, :edit, @category["id"]) %>
-<%= link "Back", to: category_path(@conn, :index) %>
+  <%= link "Edit", to: category_path(@conn, :edit, @category["id"]), class: "btn--add-new" %>
+</div>
