@@ -1,0 +1,13 @@
+$baseline: 10px;
+
+$color-main: #F57337;
+$color-main-hover: darken($color-main, 10%);
+
+$color-secondary: #fafafa;
+$color-secondary-hover: darken($color-secondary, 10%);
+
+$color-text: #444;
+$color-text-highlight: $color-main;
+$color-text-highlight-hover: $color-main-hover;
+
+$color-background: #f5f5f5;

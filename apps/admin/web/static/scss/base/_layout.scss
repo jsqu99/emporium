@@ -1,0 +1,29 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  color: $color-text;
+}
+
+body {
+  background: $color-background;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 $baseline*1.5;
+
+  @media ("min-width: 480px") {
+    max-width: 960px;
+    padding: 0 $baseline*4;
+  }
+}
