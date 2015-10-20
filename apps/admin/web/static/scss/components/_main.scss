@@ -1,0 +1,12 @@
+.main {
+
+  & > .wrapper {
+    background: #fff;
+    border: 1px solid #efefef;
+    padding: $baseline*6 $baseline*8;
+  }
+}
+
+.view-title {
+  margin-top: 0;
+}
