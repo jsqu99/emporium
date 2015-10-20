@@ -1,0 +1,15 @@
+.header {
+  padding: $baseline*4 0;
+
+  & > .wrapper {
+    padding-left: 0;
+  }
+}
+
+.logo {
+  width: 123px;
+  height: 25px;
+  display: inline-block;
+  background-image: url("/images/emporium-logo-blackonwhite.png");
+  background-size: 123px 25px;
+}

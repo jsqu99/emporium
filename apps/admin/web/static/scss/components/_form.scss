@@ -1,0 +1,48 @@
+input, textarea {
+  padding: 5px;
+  font-size: 15px;
+  height: 36px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  width: 100%;
+  max-width: 360px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #3FB6FB;
+  }
+
+  &#product_description {
+    height: 120px;
+  }
+}
+
+label {
+  vertical-align: middle;
+  display: inline-block;
+  width: 120px;
+
+  &[for="product_description"] {
+    vertical-align: top;
+  }
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.form-group {
+  padding: $baseline*1.5 0;
+}
+
+.form-group--submit {
+  margin-left: 124px;
+}

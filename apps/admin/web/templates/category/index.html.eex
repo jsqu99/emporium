@@ -1,23 +1,32 @@
-<h2>Listing categories</h2>
+<div class="form-container">
+  <h2 class="view__title">Listing categories</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for category <- @categories do %>
-    <tr>
-      <td><%= category["name"] %></td>
-      <td class="text-right">
-        <%= link "Show", to: category_path(@conn, :show, category["id"]), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: category_path(@conn, :edit, category["id"]), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: category_path(@conn, :delete, category["id"]), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+  <%= link "New category", to: category_path(@conn, :new), class: "btn--add-new" %>
 
-<%= link "New category", to: category_path(@conn, :new) %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= for category <- @categories do %>
+      <tr>
+        <td><%= category["name"] %></td>
+        <td>
+          <%= link "Show", to: category_path(@conn, :show, category["id"]) %>
+        </td>
+        <td>
+          <%= link "Edit", to: category_path(@conn, :edit, category["id"]) %>
+        </td>
+        <td>
+          <%= link "Delete", to: category_path(@conn, :delete, category["id"]), method: :delete, data: [confirm: "Are you sure?"] %>
+        </td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
